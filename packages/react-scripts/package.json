@@ -1,6 +1,6 @@
 {
   "name": "@sioked/cra-react-redux-scripts",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Custom scripts for create-react-app including redux",
   "repository": "sioked/create-react-redux-app",
   "license": "BSD-3-Clause",
@@ -49,8 +49,8 @@
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.5",
     "promise": "7.1.1",
-    "react-dev-utils": "^3.0.1",
-    "react-error-overlay": "^1.0.8",
+    "react-dev-utils": "^3.0.0",
+    "react-error-overlay": "^1.0.7",
     "sass-loader": "^6.0.6",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
