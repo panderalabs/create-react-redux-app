@@ -21,20 +21,6 @@ const path = require('path');
 const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
 
-//Custom required modules
-const customDependencies = [
-  'redux',
-  'react-redux',
-  'react-router-dom',
-  'react-router-redux',
-  'reselect',
-  'redux-thunk',
-  'whatwg-fetch',
-  'prop-types',
-  'fetch-intercept',
-  'history',
-];
-
 module.exports = function(
   appPath,
   appName,
@@ -158,7 +144,13 @@ module.exports = function(
     console.log(`Installing react and react-dom`);
     console.log();
   }
-  installPackages(customDependencies);
+
+  // Install all of the dev dependencies as those will be our new project dependencies
+  installPackages(
+    Object.keys(appPackage.devDependencies).map(
+      key => `${key}@${appPackage.devDependencies[key]}`
+    )
+  );
   installPackages(['redux-devtools'], { dev: true });
 
   //Force a reinstall of node-sass so that we rebuild locally
