@@ -43,17 +43,18 @@ module.exports = function(
   template
 ) {
   function installPackages(cmds, opts = {}) {
-    const { dev = false } = opts;
+    const { dev = false, force = false } = opts;
     const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
     let command, args;
     if (useYarn) {
       command = 'yarnpkg';
-      args = ['add', dev && '--dev'].filter(x => x);
+      args = ['add', dev && '--dev', force && '--force'].filter(x => x);
     } else {
       command = 'npm';
       args = [
         'install',
         dev ? '--save-dev' : '--save',
+        force && '--force',
         verbose && '--verbose',
       ].filter(e => e);
     }
@@ -158,7 +159,10 @@ module.exports = function(
     console.log();
   }
   installPackages(customDependencies);
-  installPackages('redux-devtools', { dev: true });
+  installPackages(['redux-devtools'], { dev: true });
+
+  //Force a reinstall of node-sass so that we rebuild locally
+  installPackages(['node-sass'], { dev: true, force: true });
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
