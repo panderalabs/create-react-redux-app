@@ -21,6 +21,20 @@ const path = require('path');
 const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
 
+//Custom required modules
+const customDependencies = [
+  'redux',
+  'react-redux',
+  'react-router-dom',
+  'react-router-redux',
+  'reselect',
+  'redux-thunk',
+  'whatwg-fetch',
+  'prop-types',
+  'fetch-intercept',
+  'history',
+];
+
 module.exports = function(
   appPath,
   appName,
@@ -105,7 +119,7 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom');
+  args.push('react', 'react-dom', ...customDependencies);
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -134,6 +148,22 @@ module.exports = function(
       console.error(`\`${command} ${args.join(' ')}\` failed`);
       return;
     }
+  }
+
+  //Add some dev dependencies (specifically redux-devtools)
+  if (useYarn) {
+    args = ['add', '--dev'];
+  } else {
+    args = ['install', '--save-dev', verbose && '--verbose'].filter(e => e);
+  }
+  args.push('redux-devtools');
+  console.log(`Installing redux-devtools using ${command}...`);
+  console.log();
+
+  const proc = spawn.sync(command, args, { stdio: 'inherit' });
+  if (proc.status !== 0) {
+    console.error(`\`${command} ${args.join(' ')}\` failed`);
+    return;
   }
 
   // Display the most elegant way to cd.

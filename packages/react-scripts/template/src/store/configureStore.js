@@ -1,7 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-import { browserHistory } from 'react-router';
-import { throttle } from 'lodash';
 import thunkMiddleware from 'redux-thunk';
 import reducers from '../reducers';
 import * as localstore from '../utils/localstore';

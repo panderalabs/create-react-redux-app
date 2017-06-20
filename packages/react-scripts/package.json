@@ -1,14 +1,14 @@
 {
-  "name": "react-scripts",
-  "version": "1.0.7",
-  "description": "Configuration and scripts for Create React App.",
-  "repository": "facebookincubator/create-react-app",
+  "name": "@sioked/cra-react-redux-scripts",
+  "version": "1.0.0",
+  "description": "Custom scripts for create-react-app including redux",
+  "repository": "sioked/create-react-redux-app",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/sioked/create-react-redux-app/issues"
   },
   "files": [
     "bin",
@@ -44,23 +44,34 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.28.0",
     "jest": "20.0.3",
+    "node-sass": "^4.5.3",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.5",
     "promise": "7.1.1",
     "react-dev-utils": "^3.0.0",
     "react-error-overlay": "^1.0.7",
+    "sass-loader": "^6.0.6",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "url-loader": "0.5.8",
     "webpack": "2.6.1",
     "webpack-dev-server": "2.4.5",
     "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
+    "fetch-intercept": "^2.2.3",
+    "history": "^4.6.2",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.0",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
   },
   "optionalDependencies": {
     "fsevents": "1.1.2"

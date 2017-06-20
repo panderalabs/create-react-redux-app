@@ -2,9 +2,7 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
 import createHistory from 'history/createBrowserHistory';
-import { ConnectedRouter } from 'react-router-redux';
 import configureStore from './store/configureStore';
 import Routes from './Routes';
 import initInterceptor from './utils/httpInterceptor';
@@ -18,7 +16,7 @@ const store = configureStore(history);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history} routes={Routes(store)} />
+    <Routes store={store} />
   </Provider>,
   document.getElementById('root')
 );

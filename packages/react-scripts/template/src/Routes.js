@@ -1,18 +1,27 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import PropTypes from 'prop-types';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Layout from './pages/layout/Layout';
 import Root from './pages/root/Root';
 import { onLoggedInRoute } from './actions/auth';
 
-export default function Routes(store) {
+export default function Routes(props) {
   return (
-    <Route path="/" component={Layout}>
-      <IndexRoute component={Root} />
-      <Route
-        path="authenticated"
-        onEnter={nextState =>
-          store.dispatch(onLoggedInRoute(nextState.location))}
-      />
-    </Route>
+    <Layout>
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={Root} />
+          <Route
+            path="authenticated"
+            onEnter={nextState =>
+              props.store.dispatch(onLoggedInRoute(nextState.location))}
+          />
+        </div>
+      </BrowserRouter>
+    </Layout>
   );
 }
+
+Routes.propTypes = {
+  store: PropTypes.any,
+};
