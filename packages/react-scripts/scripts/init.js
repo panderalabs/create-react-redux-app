@@ -42,7 +42,8 @@ module.exports = function(
   originalDirectory,
   template
 ) {
-  function installPackages(cmds, { dev = false }) {
+  function installPackages(cmds, opts = {}) {
+    const { dev = false } = opts;
     const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
     let command, args;
     if (useYarn) {
