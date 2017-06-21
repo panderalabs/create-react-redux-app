@@ -149,7 +149,7 @@ module.exports = function(
   // Install all of the dev dependencies as those will be our new project dependencies
   installPackages(
     Object.keys(ownPackage.devDependencies).map(
-      key => `${key}@${appPackage.devDependencies[key]}`
+      key => `${key}@${ownPackage.devDependencies[key]}`
     )
   );
   installPackages(['redux-devtools'], { dev: true });
