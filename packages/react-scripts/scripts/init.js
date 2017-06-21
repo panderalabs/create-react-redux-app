@@ -57,6 +57,7 @@ module.exports = function(
     '..',
     'package.json'
   )).name;
+  const ownPackage = require(path.join(__dirname, '..', 'package.json'));
   const ownPath = path.join(appPath, 'node_modules', ownPackageName);
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
@@ -147,7 +148,7 @@ module.exports = function(
 
   // Install all of the dev dependencies as those will be our new project dependencies
   installPackages(
-    Object.keys(appPackage.devDependencies).map(
+    Object.keys(ownPackage.devDependencies).map(
       key => `${key}@${appPackage.devDependencies[key]}`
     )
   );
