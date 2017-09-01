@@ -1,14 +1,14 @@
 {
-  "name": "@sioked/cra-react-redux-scripts",
+  "name": "@panderalabs/cra-react-redux-scripts",
   "version": "1.2.4",
   "description": "Custom scripts for create-react-app including redux",
-  "repository": "sioked/create-react-redux-app",
+  "repository": "panderalabs/create-react-redux-app",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/sioked/create-react-redux-app/issues"
+    "url": "https://github.com/panderalabs/create-react-redux-app/issues"
   },
   "files": [
     "bin",
