@@ -59,7 +59,6 @@ module.exports = (resolve, rootDir, isEjecting) => {
     'automock',
     'coveragePathIgnorePatterns',
     'globals',
-    'noStackTrace',
     'testPathIgnorePatterns',
   ];
   if (overrides) {
