@@ -42,6 +42,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
     transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
+      "^.+\\.(css|scss)$": "identity-obj-proxy",
     },
     moduleFileExtensions: ['web.js', 'js', 'json', 'web.jsx', 'jsx', 'node'],
   };
@@ -54,6 +55,12 @@ module.exports = (resolve, rootDir, isEjecting) => {
     'coverageReporters',
     'coverageThreshold',
     'snapshotSerializers',
+    // These are custom, we should be able to change these if required:
+    'automock',
+    'coveragePathIgnorePatterns',
+    'globals',
+    'noStackTrace',
+    'testPathIgnorePatterns',
   ];
   if (overrides) {
     supportedKeys.forEach(key => {
