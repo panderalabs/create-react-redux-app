@@ -25,6 +25,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
   const config = {
     collectCoverageFrom: ['src/**/*.{js,jsx}'],
     setupFiles: [resolve('config/polyfills.js')],
+    setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.js?(x)',
       '<rootDir>/src/**/?(*.)(spec|test).js?(x)',
@@ -45,9 +46,6 @@ module.exports = (resolve, rootDir, isEjecting) => {
     },
     moduleFileExtensions: ['web.js', 'js', 'json', 'web.jsx', 'jsx', 'node'],
   };
-  if (setupTestsFile) {
-    config.setupFiles = config.setupFiles.concat(setupTestsFile);
-  }
   if (rootDir) {
     config.rootDir = rootDir;
   }
